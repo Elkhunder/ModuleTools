@@ -12,7 +12,7 @@ function Build-Module {
     }
 
     # Private Folder
-    $files = Get-ChildItem -Path $data.PrivateDir -Filter *.ps1 -ErrorAction SilentlyContinue
+    $files = Get-ChildItem -Recurse -Path $data.PrivateDir -Filter *.ps1 -ErrorAction SilentlyContinue
     if ($files) {
         $files | ForEach-Object {
             $sb.AppendLine([IO.File]::ReadAllText($_.FullName)) | Out-Null

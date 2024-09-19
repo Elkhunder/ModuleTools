@@ -4,7 +4,7 @@ function Build-Manifest {
 
     ## TODO - DO schema check
 
-    $PubFunctionFiles = Get-ChildItem -Path $data.PublicDir -Filter *.ps1
+    $PubFunctionFiles = Get-ChildItem -Recurse -Path $data.PublicDir -Filter *.ps1
     $functionToExport = @()
     $PubFunctionFiles | ForEach-Object {
         $functionToExport += Get-FunctionNameFromFile -filePath $_.FullName
